@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Card from "./Card";
-import { Notification } from "../constants/Mock";
-// import { NotificationType } from "../constants/Mock";
+// import { Notification, NotificationType } from "../constants/Mock";
+import { NotificationType } from "../constants/Mock";
+type BodyType = {
+  data: NotificationType[];
+};
 
-const Body: React.FC = () => {
+const Body: React.FC<BodyType> = ({ data }) => {
   return (
     <div className="pb-3">
-      {Notification.map((notice: any) => (
+      {data.map((notice: any) => (
         <Card key={notice.profileName} data={notice} />
       ))}
     </div>

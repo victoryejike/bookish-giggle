@@ -12,12 +12,12 @@ export const Notification = [
     avatar: Mark,
     type: "reaction",
     time: "1m ago",
-    readStatus: false,
+    readStatus: true,
 
     notificationFor: {
       newGroupMember: false,
       newFollower: false,
-      groupName: null,
+      groupName: "",
       postType: "text",
       post: "My first tournament today",
     },
@@ -27,13 +27,13 @@ export const Notification = [
     avatar: Angela,
     type: "follow",
     time: "5m ago",
-    readStatus: false,
+    readStatus: true,
 
     notificationFor: {
       newGroupMember: false,
       newFollower: true,
-      groupName: null,
-      postType: null,
+      groupName: "",
+      postType: "",
       post: "",
     },
   },
@@ -42,13 +42,13 @@ export const Notification = [
     avatar: Jacob,
     type: "join",
     time: "1 day ago",
-    readStatus: false,
+    readStatus: true,
 
     notificationFor: {
       newGroupMember: true,
       groupName: "Chess Club",
       newFollower: false,
-      postType: null,
+      postType: "",
       post: "",
     },
   },
@@ -57,11 +57,11 @@ export const Notification = [
     avatar: Rizky,
     type: "message",
     time: "5 days ago",
-    readStatus: true,
+    readStatus: false,
 
     notificationFor: {
       newGroupMember: false,
-      groupName: null,
+      groupName: "",
       newFollower: false,
       postType: "text",
       post: "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
@@ -72,11 +72,11 @@ export const Notification = [
     avatar: Kimberly,
     type: "image-comment",
     time: "1 week ago",
-    readStatus: true,
+    readStatus: false,
 
     notificationFor: {
       newGroupMember: false,
-      groupName: null,
+      groupName: "",
       newFollower: false,
       postType: "image",
       post: Chess,
@@ -87,11 +87,11 @@ export const Notification = [
     avatar: Nathan,
     type: "reaction",
     time: "2 weeks ago",
-    readStatus: true,
+    readStatus: false,
 
     notificationFor: {
       newGroupMember: false,
-      groupName: null,
+      groupName: "",
       newFollower: false,
       postType: "text",
       post: "5 end-game strategies to increase your win rate",
@@ -102,13 +102,13 @@ export const Notification = [
     avatar: Anna,
     type: "left-group",
     time: "2 weeks ago",
-    readStatus: true,
+    readStatus: false,
 
     notificationFor: {
       newGroupMember: false,
       groupName: "Chess Club",
       newFollower: false,
-      postType: null,
+      postType: "",
       post: "",
     },
   },
@@ -127,6 +127,6 @@ type TNotification = {
   newGroupMember: boolean;
   groupName: string;
   newFollower: boolean;
-  postType: string | null;
+  postType: string;
   post: string;
 };
