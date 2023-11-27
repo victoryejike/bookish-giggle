@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import NotificationBody from "./components/Body";
-import { Notification } from "./constants/Mock";
+import { anotherProxy, Notification } from "./constants/Mock";
 
 function App() {
-  const [read, setRead] = useState(Notification);
   const [count, setCount] = useState(0);
+  const [read, setRead] = useState(Notification);
 
   useEffect(() => {
     const unread = read.filter(
       (notification) => notification.readStatus === true
     ).length;
     setCount(unread);
-  }, [count, read]);
+  }, [read]);
 
   const handleClick = () => {
-    setRead((prevState) =>
-      prevState.map((prev) => ({ ...prev, readStatus: false }))
-    );
+    anotherProxy.map((prev) => (prev.readStatus = false));
+    setRead(anotherProxy);
   };
 
   return (
@@ -34,7 +33,7 @@ function App() {
             {count !== 0 ? "Mark all as read" : "Mark as unread"}
           </p>
         </div>
-        <NotificationBody data={read} />
+        <NotificationBody />
       </section>
     </main>
   );

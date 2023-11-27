@@ -1,15 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Card from "./Card";
-// import { Notification, NotificationType } from "../constants/Mock";
+import { anotherProxy } from "../constants/Mock";
 import { NotificationType } from "../constants/Mock";
-type BodyType = {
-  data: NotificationType[];
-};
 
-const Body: React.FC<BodyType> = ({ data }) => {
+const Body: React.FC = () => {
   return (
     <div className="pb-3">
-      {data.map((notice: any) => (
+      {anotherProxy.map((notice: NotificationType) => (
         <Card key={notice.profileName} data={notice} />
       ))}
     </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Mark from "../assets/avatar-mark-webber.webp";
 import Kimberly from "../assets/avatar-kimberly-smith.webp";
 import Angela from "../assets/avatar-angela-gray.webp";
@@ -113,6 +114,36 @@ export const Notification = [
     },
   },
 ];
+
+const createArrayProxy = (
+  array: NotificationType[],
+  handler: NotificationType | any
+) => {
+  return new Proxy(array, handler);
+};
+
+// Create a handler for the proxy, this one creates an object same as the target
+const arrayHandler = [{}];
+// const arrayHandler = {
+//   get: function (target: NotificationType, property: string, receiver: any) {
+//     // Add custom behavior for array access (e.g., logging)
+//     // console.log(`Accessing property: ${property}`);
+//     return Reflect.get(target, property, receiver);
+//   },
+//   set: function (
+//     target: NotificationType,
+//     property: string,
+//     value: any,
+//     receiver: any
+//   ) {
+//     // Add custom behavior for setting values in the array
+//     console.log(`Setting property: ${property} to ${value}`);
+//     return Reflect.set(target, property, value, receiver);
+//   },
+// };
+
+// Create a proxy for the array
+export const anotherProxy = createArrayProxy(Notification, arrayHandler);
 
 export type NotificationType = {
   profileName: string;
