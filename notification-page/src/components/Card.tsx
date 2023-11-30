@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
           </span>{" "}
           reacted to your recent post{" "}
           {data?.notificationFor?.post && (
-            <span className=" text-very-dark-blue font-semibold cursor-pointer">
+            <span className=" text-very-dark-blue font-bold cursor-pointer hover:text-noti-blue hoverfont-bold">
               {data?.notificationFor?.post}
             </span>
           )}{" "}
@@ -38,7 +38,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
           </span>{" "}
           followed you{" "}
           {data?.notificationFor?.post && (
-            <span className=" text-very-dark-blue font-semibold cursor-pointer">
+            <span className=" text-very-dark-blue font-bold cursor-pointer hover:text-noti-blue hoverfont-bold">
               {data?.notificationFor?.post}
             </span>
           )}{" "}
@@ -85,7 +85,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
             ? "has joined your group"
             : "left the group"}{" "}
           {data?.notificationFor?.groupName && (
-            <span className=" text-very-dark-blue font-semibold cursor-pointer">
+            <span className=" text-very-dark-blue font-bold cursor-pointer hover:text-noti-blue hoverfont-bold">
               {data?.notificationFor?.groupName}
             </span>
           )}{" "}
@@ -103,7 +103,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
   if (data.type === "message") {
     cardContent = (
       <div className="pl-3 text-sm lg:text-base">
-        <p className={``}>
+        <div className={``}>
           <span className=" text-very-dark-blue font-semibold">
             {data.profileName}
           </span>{" "}
@@ -114,14 +114,14 @@ const Card: React.FC<CardProps> = ({ data }) => {
             ""
           )}
           <p>{data.time}</p>
-          <div className="border border-grayish-blue p-3 rounded mt-2">
+          <div className="border border-grayish-blue p-3 rounded mt-2 hover:bg-light-grayish-blue-1 hover:border-light-grayish-blue-1">
             {data?.notificationFor?.post && (
               <span className=" text-dark-grayish-blue cursor-pointer">
                 {data?.notificationFor?.post}
               </span>
             )}{" "}
           </div>
-        </p>
+        </div>
       </div>
     );
   }
@@ -131,7 +131,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       <div
         className={` ${
           data.readStatus ? "bg-light-grayish-blue-2" : "bg-white"
-        } w-full rounded-lg h-full p-3 cursor-pointer my-2`}
+        } w-full rounded-lg h-full p-3 cursor-pointer my-2 `}
       >
         <div className="flex justify-start items-start">
           <img

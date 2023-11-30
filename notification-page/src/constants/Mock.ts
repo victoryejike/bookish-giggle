@@ -119,28 +119,21 @@ const createArrayProxy = (
   array: NotificationType[],
   handler: NotificationType | any
 ) => {
-  return new Proxy(array, handler);
+  return new Proxy(array, handler) as NotificationType[];
 };
 
 // Create a handler for the proxy, this one creates an object same as the target
-const arrayHandler = [{}];
-// const arrayHandler = {
-//   get: function (target: NotificationType, property: string, receiver: any) {
-//     // Add custom behavior for array access (e.g., logging)
-//     // console.log(`Accessing property: ${property}`);
-//     return Reflect.get(target, property, receiver);
-//   },
-//   set: function (
-//     target: NotificationType,
-//     property: string,
-//     value: any,
-//     receiver: any
-//   ) {
-//     // Add custom behavior for setting values in the array
-//     console.log(`Setting property: ${property} to ${value}`);
-//     return Reflect.set(target, property, value, receiver);
-//   },
-// };
+const arrayHandler = [
+  {
+    get: function (target: NotificationType[], property: any) {
+      if (property === 0) {
+        console.log(property);
+        return target[property + 1];
+      }
+      //   return Reflect.get(target, property + 1);
+    },
+  },
+];
 
 // Create a proxy for the array
 export const anotherProxy = createArrayProxy(Notification, arrayHandler);

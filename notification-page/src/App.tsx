@@ -29,8 +29,11 @@ function App() {
               {count}
             </span>
           </p>
-          <p className="cursor-pointer text-grayish-blue" onClick={handleClick}>
-            {count !== 0 ? "Mark all as read" : "Mark as unread"}
+          <p
+            className="cursor-pointer text-grayish-blue hover:text-noti-blue font-medium"
+            onClick={handleClick}
+          >
+            {count !== 0 ? "Mark all as read" : ""}
           </p>
         </div>
         <NotificationBody />
